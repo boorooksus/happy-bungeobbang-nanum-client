@@ -14,6 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<MainPage />}></Route>
         <Route path="/manager" element={<ManagerPage />}></Route>
+        <Route path="/*" element={<MainPage />} />
       </Routes>
     </div>
   );
