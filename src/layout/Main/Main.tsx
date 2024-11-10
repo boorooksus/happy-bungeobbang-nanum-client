@@ -6,7 +6,7 @@ const Main = () => {
   const { greeting } = data;
   return (
     <div>
-      <MainImg src={mainImg} />
+      {/* <MainImg src={mainImg} /> */}
       <MainTitle>{greeting.title}</MainTitle>
     </div>
   );

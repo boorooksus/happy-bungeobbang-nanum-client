@@ -44,13 +44,14 @@ function MainPage() {
           <Main />
         </Wrapper>
         <Wrapper>
-          <Heading1>행사 소개</Heading1>
-          <Invitation />
-        </Wrapper>
-        <Wrapper>
           <Heading1>대기 현황</Heading1>
           <Guestbook />
         </Wrapper>
+        <Wrapper>
+          <Heading1>행사 소개</Heading1>
+          <Invitation />
+        </Wrapper>
+
         <Wrapper>
           <Heading1>오시는 길</Heading1>
           <Location />
