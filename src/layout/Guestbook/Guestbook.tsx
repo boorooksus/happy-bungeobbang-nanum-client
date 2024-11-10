@@ -3,7 +3,9 @@ import styled from '@emotion/styled';
 import { realtimeDb } from 'firebase';
 import { onValue, ref, update } from 'firebase/database';
 import data from '../../data.json';
-import mainImg from '@/assets/images/pepe2.webp';
+import bungeoImg from '@/assets/images/bungeo.png';
+import bungeoImg2 from '@/assets/images/bungeo_tear.png';
+
 import { Heading2, Paragraph } from '@/components/Text.tsx';
 
 const colorMapper = data.colorMapper;
@@ -33,7 +35,8 @@ const Guestbook = () => {
   return (
     <GuestBookWrapper>
       <Heading2>붕어빵 대기줄 현황을 알려드릴게요</Heading2>
-      <Img src={mainImg} />
+      {waitTime < 15 ? <Img src={bungeoImg} /> : <Img src={bungeoImg2} />}
+
       <StatusText style={{ color: colorMapper[color] }}>{status}</StatusText>
       <WaitingTimeText>
         {' '}
@@ -49,6 +52,7 @@ const Img = styled.img`
   width: 90%;
   max-width: 450px;
   padding-top: 20px;
+  background-color: '#ffffff';
 `;
 
 const GuestBookWrapper = styled.div`
