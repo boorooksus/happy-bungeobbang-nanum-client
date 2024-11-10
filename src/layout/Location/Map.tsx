@@ -12,7 +12,7 @@ const Map = () => {
         width: '100%',
         height: '300px',
       }}>
-      {/* <NaverMap
+      <NaverMap
         defaultCenter={new navermaps.LatLng(lat, lon)}
         defaultZoom={17}
         draggable={false}
@@ -20,7 +20,7 @@ const Map = () => {
         scrollWheel={false}
         keyboardShortcuts={false}>
         <Marker defaultPosition={new navermaps.LatLng(lat, lon)} />
-      </NaverMap> */}
+      </NaverMap>
     </MapDiv>
   );
 };
