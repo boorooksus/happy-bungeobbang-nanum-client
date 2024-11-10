@@ -8,6 +8,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
+    'prettier',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
@@ -19,57 +20,43 @@ module.exports = {
   },
   plugins: ['react-refresh', 'import'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
-    'react/no-unknown-property': ['error', { 'ignore': ['css'] }],
-    'sort-imports': [
-      'error',
-      { ignoreCase: true, ignoreDeclarationSort: true}
-    ],
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'react/no-unknown-property': ['error', { ignore: ['css'] }],
+    'sort-imports': ['error', { ignoreCase: true, ignoreDeclarationSort: true }],
     'import/order': [
       'error',
       {
-        "groups": [
-          "external",
-          "builtin",
-          "internal",
-          "sibling",
-          "parent",
-          "index"
+        groups: ['external', 'builtin', 'internal', 'sibling', 'parent', 'index'],
+        pathGroups: [
+          {
+            pattern: 'react',
+            group: 'external',
+            position: 'before',
+          },
+          {
+            pattern: '@components/**',
+            group: 'internal',
+          },
+          {
+            pattern: '@layout/**',
+            group: 'internal',
+          },
+          {
+            pattern: 'common',
+            group: 'internal',
+          },
+          {
+            pattern: '@assets/**',
+            group: 'internal',
+            position: 'after',
+          },
         ],
-        "pathGroups": [
-          {
-            'pattern': 'react',
-            'group':'external',
-            'position': 'before'
-          },
-          {
-            'pattern': '@components/**',
-            'group':'internal'
-          },
-          {
-            'pattern': '@layout/**',
-            'group':'internal'
-          },
-          {
-            "pattern": "common",
-            "group": "internal"
-          },
-          {
-            "pattern": "@assets/**",
-            "group": "internal",
-            "position": "after"
-          }
-        ],
-        "pathGroupsExcludedImportTypes":
-          ["internal", "react"],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
-      }
-    ]
-  }
-}
+        pathGroupsExcludedImportTypes: ['internal', 'react'],
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
+  },
+};

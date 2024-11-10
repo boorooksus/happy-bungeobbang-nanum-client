@@ -28,6 +28,7 @@ const FloatingBar = ({ isVisible }: { isVisible: boolean }) => {
     navigator.clipboard.writeText(window.location.href).then(
       () => {
         alert('주소가 복사되었습니다.😉😉');
+        void jsConfetti.addConfetti({ emojis });
       },
       () => {
         alert('주소 복사에 실패했습니다.🥲🥲');
@@ -36,29 +37,25 @@ const FloatingBar = ({ isVisible }: { isVisible: boolean }) => {
   };
 
   const handleCount = () => {
-    void jsConfetti.addConfetti({ emojis });
-
     // 버튼 클릭시 likes 수 증가
     const dbRef = ref(realtimeDb);
     void update(dbRef, {
-      likes: increment(1),
+      likes: '4321',
     });
   };
 
   const jsConfetti = new JSConfetti();
   const handleScroll = () => {
+    void jsConfetti.addConfetti({ emojis });
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <Nav isVisible={isVisible}>
-      <Button onClick={handleCount}>
-        <Heart fill="#e88ca6" />
-        {/*{count || ''}*/}
-      </Button>
       <Button onClick={handleCopy}>
         <Share fill="#e88ca6" />
-        공유
+        공유하기
       </Button>
       <Button onClick={handleScroll}>
         <Upward fill="#e88ca6" />

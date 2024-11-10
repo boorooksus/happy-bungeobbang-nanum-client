@@ -4,30 +4,7 @@ import AccountWrap from './AccountWrap.tsx';
 import Accordion from '@/components/Accordion.tsx';
 
 const Account = () => {
-  const { hostInfo } = data;
-  return (
-    <HostInfoWrapper>
-      {hostInfo.map((host) => {
-        return (
-          <Accordion title={host.host} key={host.host}>
-            {host.accountInfo.map((account) => {
-              return (
-                <AccountWrap
-                  key={account.name}
-                  name={account.name}
-                  relation={account.relation}
-                  bank={account.bank}
-                  account={account.account}
-                  kakaopayAccount={account.kakaopayAccount}
-                  tossAccount={account.tossAccount}
-                />
-              );
-            })}
-          </Accordion>
-        );
-      })}
-    </HostInfoWrapper>
-  );
+  return <HostInfoWrapper>붕어빵 재고 소진시 행사가 조기 종료 될 수 있습니다</HostInfoWrapper>;
 };
 
 export default Account;

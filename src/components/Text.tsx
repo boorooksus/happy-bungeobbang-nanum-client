@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const Heading1 = styled.p`
   font-family: HSSanTokki20-Regular, serif;
   font-size: 1.5rem;
-  margin: 10px;
+  margin: 5px;
   color: #e88ca6;
   white-space: pre-line;
 `;
@@ -23,8 +23,9 @@ export const PointTitle = styled.p`
 `;
 
 export const Paragraph = styled.p`
-  line-height: 2.2rem;
+  margin-top: 10px;
   white-space: pre-line;
+  font-weight: 700;
 `;
 
 export const Caption = styled.p<{ textAlign?: string }>`

@@ -23,7 +23,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-naver-maps": "^0.1.2",
-    "react-photoswipe-gallery": "^2.2.7"
+    "react-photoswipe-gallery": "^2.2.7",
+    "react-router-dom": "^6.28.0",
+    "vite-plugin-next-react-router": "^0.7.1"
   },
   "devDependencies": {
     "@types/node": "^20.10.6",

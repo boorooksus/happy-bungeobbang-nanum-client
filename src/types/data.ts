@@ -4,6 +4,7 @@ export interface IData {
   hostInfo: IHostInfo[];
   locationInfo: ILocationInfo[];
   mapInfo: IMapInfo;
+  mapInfo2: IMapInfo2;
 }
 
 export interface IGreeting {
@@ -40,6 +41,15 @@ export interface IHostInfo {
 }
 
 export interface IMapInfo {
+  address1: string;
+  address2: string;
+  naverMap: string;
+  kakaoMap: string;
+  lat: number;
+  lon: number;
+}
+
+export interface IMapInfo2 {
   address1: string;
   address2: string;
   naverMap: string;

@@ -15,8 +15,8 @@ const Map = () => {
       <NaverMap
         defaultCenter={new navermaps.LatLng(lat, lon)}
         defaultZoom={17}
-        draggable={false}
-        pinchZoom={false}
+        draggable={true}
+        pinchZoom={true}
         scrollWheel={false}
         keyboardShortcuts={false}>
         <Marker defaultPosition={new navermaps.LatLng(lat, lon)} />
