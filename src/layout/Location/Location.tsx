@@ -13,14 +13,14 @@ const Location = () => {
       <MapWrapper>
         <PointTitle>{mapInfo.address1}</PointTitle>
         <Caption textAlign={'center'}>{mapInfo.address2}</Caption>
-        <Map lat={mapInfo.lat} lon={mapInfo.lon} />
-        <MapButtons />
+        <Map mapInfo={mapInfo} />
+        <MapButtons mapInfo={mapInfo} />
       </MapWrapper>
       <MapWrapper>
         <PointTitle>{mapInfo2.address1}</PointTitle>
         <Caption textAlign={'center'}>{mapInfo2.address2}</Caption>
-        <Map lat={mapInfo2.lat} lon={mapInfo2.lon} />
-        <MapButtons />
+        <Map mapInfo={mapInfo2} />
+        <MapButtons mapInfo={mapInfo2} />
       </MapWrapper>
     </LocationWrapper>
   );
