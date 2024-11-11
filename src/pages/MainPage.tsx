@@ -53,7 +53,7 @@ function MainPage() {
         </Wrapper>
 
         <Wrapper>
-          <Heading1>오시는 길</Heading1>
+          <Heading1>위치</Heading1>
           <Location />
         </Wrapper>
         <Wrapper>

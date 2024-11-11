@@ -5,6 +5,7 @@ import { onValue, ref, update } from 'firebase/database';
 import data from '../../data.json';
 import bungeoImg from '@/assets/images/bungeo.png';
 import bungeoImg2 from '@/assets/images/bungeo_tear.png';
+import pepeImg from '@/assets/images/pepe3.jpg';
 
 import { Heading2, Paragraph } from '@/components/Text.tsx';
 
@@ -35,7 +36,7 @@ const Guestbook = () => {
   return (
     <GuestBookWrapper>
       <Heading2>붕어빵 대기줄 현황을 알려드릴게요</Heading2>
-      {waitTime < 15 ? <Img src={bungeoImg} /> : <Img src={bungeoImg2} />}
+      {waitTime < 15 ? <Img src={pepeImg} /> : <Img src={bungeoImg2} />}
 
       <StatusText style={{ color: colorMapper[color] }}>{status}</StatusText>
       <WaitingTimeText>

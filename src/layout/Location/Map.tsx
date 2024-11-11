@@ -2,8 +2,12 @@
 import data from 'data.json';
 import { Container as MapDiv, Marker, NaverMap, useNavermaps } from 'react-naver-maps';
 
-const Map = () => {
-  const { lat, lon } = data.mapInfo;
+interface ILocationType {
+  lat: number;
+  lon: number;
+}
+
+const Map = ({ lat, lon }: ILocationType) => {
   const navermaps = useNavermaps();
 
   return (

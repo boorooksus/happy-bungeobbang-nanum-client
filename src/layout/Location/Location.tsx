@@ -6,12 +6,6 @@ import Map from './Map.tsx';
 import MapButtons from './MapButtons.tsx';
 import { Caption, PointTitle } from '@/components/Text.tsx';
 
-interface ILocationType {
-  address1: string;
-  address2: string;
-}
-
-// const Location = ({ address1, address2 }: ILocationType) => {
 const Location = () => {
   const { mapInfo, mapInfo2 } = data;
   return (
@@ -19,13 +13,13 @@ const Location = () => {
       <MapWrapper>
         <PointTitle>{mapInfo.address1}</PointTitle>
         <Caption textAlign={'center'}>{mapInfo.address2}</Caption>
-        <Map />
+        <Map lat={mapInfo.lat} lon={mapInfo.lon} />
         <MapButtons />
       </MapWrapper>
       <MapWrapper>
         <PointTitle>{mapInfo2.address1}</PointTitle>
         <Caption textAlign={'center'}>{mapInfo2.address2}</Caption>
-        <Map />
+        <Map lat={mapInfo2.lat} lon={mapInfo2.lon} />
         <MapButtons />
       </MapWrapper>
     </LocationWrapper>

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
+import { HmacSHA256 } from 'crypto-js';
 import { realtimeDb } from 'firebase';
-import { onValue, ref, update } from 'firebase/database';
+import { onValue, push, ref, serverTimestamp, update } from 'firebase/database';
 // import { push, ref, serverTimestamp } from 'firebase/database';
 import data from '../data.json';
 
@@ -17,7 +18,7 @@ const ManagerPage = () => {
   const [status, setStatus] = useState<string>('');
   const [waitTime, setWaitTime] = useState<number>(0);
   const [color, setColor] = useState<string>('');
-  const [code, setCode] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   useEffect(() => {
     const dbRef = ref(realtimeDb, 'status');
@@ -43,15 +44,23 @@ const ManagerPage = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const dbRefCode = ref(realtimeDb, 'code');
+    const key = import.meta.env.VITE_APP_PASSWORDKEY;
+    const hash = HmacSHA256(password, key).toString();
+
+    const dbRefCode = ref(realtimeDb, 'hash');
     onValue(dbRefCode, (snapshot) => {
-      if (snapshot.val() === code) {
+      if (snapshot.val() === hash) {
         const dbRef = ref(realtimeDb);
-        void update(dbRef, {
+        const uploadData = {
           status: status,
           waitTime: waitTime,
           color: color,
-        });
+          time: new Date().toLocaleString(),
+          hash: hash,
+        };
+
+        void update(dbRef, uploadData);
+        void push(dbRef, uploadData);
         window.location.reload();
       } else {
         alert('잘못된 코드입니다.');
@@ -111,8 +120,8 @@ const ManagerPage = () => {
         </Table>
 
         <div style={{ color: 'black', margin: '20px' }}>
-          코드 입력
-          <CodeInput onChange={(e) => setCode(e.target.value)} />
+          관리자 번호
+          <CodeInput onChange={(e) => setPassword(e.target.value)} />
         </div>
         <SubmitButton type="submit">등록</SubmitButton>
       </FormWrapper>
