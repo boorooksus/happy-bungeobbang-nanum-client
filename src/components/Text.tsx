@@ -26,6 +26,7 @@ export const Paragraph = styled.p`
   margin-top: 10px;
   white-space: pre-line;
   font-weight: 700;
+  text-align: left;
 `;
 
 export const Caption = styled.p<{ textAlign?: string }>`

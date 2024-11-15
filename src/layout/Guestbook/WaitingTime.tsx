@@ -5,18 +5,34 @@ import { onValue, ref, update } from 'firebase/database';
 import data from '../../data.json';
 import bungeoImg from '@/assets/images/bungeo.png';
 import bungeoImg2 from '@/assets/images/bungeo_tear.png';
+import jasonImg from '@/assets/images/jason.webp';
+import minionsImg from '@/assets/images/minions.webp';
 import pepeImg from '@/assets/images/pepe3.jpg';
+import poohImg from '@/assets/images/pooh.webp';
+import simpsonImg from '@/assets/images/simpson.webp';
 
 import { Heading2, Paragraph } from '@/components/Text.tsx';
 
 const colorMapper = data.colorMapper;
 
-const Guestbook = () => {
+const WaitingTime = () => {
   const [waitTime, setWaitTime] = useState<number>(30);
   const [status, setStatus] = useState<string>('');
   const [color, setColor] = useState<string>('');
+  const [images, setImages] = useState<string[]>([
+    bungeoImg,
+    bungeoImg2,
+    pepeImg,
+    jasonImg,
+    poohImg,
+    simpsonImg,
+    minionsImg,
+  ]);
+  const [imgIdx, setImgIdx] = useState<number>(0);
 
   useEffect(() => {
+    setImgIdx(Math.floor(Math.random() * images.length));
+
     const dbRef = ref(realtimeDb, 'status');
     onValue(dbRef, (snapshot) => {
       setStatus(snapshot.val());
@@ -31,12 +47,14 @@ const Guestbook = () => {
     onValue(dbRef3, (snapshot) => {
       setColor(snapshot.val());
     });
+
+    console.log(imgIdx);
   }, []);
 
   return (
     <GuestBookWrapper>
       <Heading2>붕어빵 대기줄 현황을 알려드릴게요</Heading2>
-      {waitTime < 15 ? <Img src={pepeImg} /> : <Img src={bungeoImg2} />}
+      <Img src={images[imgIdx]} />
 
       <StatusText style={{ color: colorMapper[color] }}>{status}</StatusText>
       <WaitingTimeText>
@@ -47,7 +65,7 @@ const Guestbook = () => {
   );
 };
 
-export default Guestbook;
+export default WaitingTime;
 
 const Img = styled.img`
   width: 90%;
