@@ -2,9 +2,16 @@ import styled from '@emotion/styled';
 import data from 'data.json';
 import AccountWrap from './AccountWrap.tsx';
 import Accordion from '@/components/Accordion.tsx';
+import { Caption, Paragraph, PointTitle } from '@/components/Text.tsx';
 
 const Account = () => {
-  return <HostInfoWrapper>붕어빵 재고 소진시 행사가 조기 종료 될 수 있습니다</HostInfoWrapper>;
+  const { caution } = data;
+
+  return (
+    <HostInfoWrapper>
+      <Paragraph>{caution.desc}</Paragraph>
+    </HostInfoWrapper>
+  );
 };
 
 export default Account;

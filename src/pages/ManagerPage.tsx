@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import { HmacSHA256 } from 'crypto-js';
 import { realtimeDb } from 'firebase';
-import { onValue, push, ref, serverTimestamp, update } from 'firebase/database';
+import { onValue, push, ref, update } from 'firebase/database';
 // import { push, ref, serverTimestamp } from 'firebase/database';
 import data from '../data.json';
 

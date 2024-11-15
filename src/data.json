@@ -7,91 +7,16 @@
   },
   "greeting": {
     "title": "행복마을 자치회\n붕어빵 나눔 행사!",
-    "date": "11월 26일 14시~20시\n11월 27일 14시~20시",
-    "host": {
-      "groom": {
-        "name": "세모",
-        "relation": "아들",
-        "parents": [
-          {
-            "relation": "아버지",
-            "name": "장아빠"
-          },
-          {
-            "relation": "어머니",
-            "name": "이엄마"
-          }
-        ]
-      },
-      "bride": {
-        "name": "네모",
-        "relation": "딸",
-        "parents": [
-          {
-            "relation": "아버지",
-            "name": "황아빠"
-          },
-          {
-            "relation": "어머니",
-            "name": "이엄마"
-          }
-        ]
-      }
-    },
-    "eventDetail": "행복마을자치회에서 기숙인들을 위한\n붕어빵 나눔 행사를 진행합니다."
+    "date": "11월 26일(화) 14시~20시\n11월 28일(목) 14시~20시",
+    "eventDetail": "행복마을자치회에서 기숙인들을 위한\n붕어빵 나눔 행사를 진행합니다.",
+    "kakaoDesc": "아래 행사 위치에 있는 붕어빵 푸드트럭을 찾아주세요\n\n'SK행복마을 자치회' 카카오 채널 친구 추가하시면\n 붕어빵을 2개 드립니다!\n"
   },
-  "hostInfo": [
-    {
-      "host": "신랑측",
-      "accountInfo": [
-        {
-          "name": "장세모",
-          "relation": "신랑",
-          "bank": "카카오뱅크",
-          "account": "1234-56-789012",
-          "kakaopayAccount": "",
-          "tossAccount": ""
-        },
-        {
-          "name": "장아빠",
-          "relation": "아버지",
-          "bank": "농협",
-          "account": "123-45-678901"
-        },
-        {
-          "name": "이엄마",
-          "relation": "어머니",
-          "bank": "농협",
-          "account": "123-45-678901"
-        }
-      ]
-    },
-    {
-      "host": "신부측",
-      "accountInfo": [
-        {
-          "name": "황네모",
-          "relation": "신부",
-          "bank": "토스뱅크",
-          "account": "1234-5678-9012",
-          "kakaopayAccount": "",
-          "tossAccount": ""
-        },
-        {
-          "name": "황아빠",
-          "relation": "아버지",
-          "bank": "농협",
-          "account": "123-45-678901"
-        },
-        {
-          "name": "이엄마",
-          "relation": "어머니",
-          "bank": "농협",
-          "account": "123-45-678901"
-        }
-      ]
-    }
-  ],
+  "kakaoChannelInfo": {
+    "url": "http://pf.kakao.com/_iCxixgG"
+  },
+  "caution": {
+    "desc": "😅 붕어빵 재고 소진시 행사가 조기 종료 될 수 있습니다\n\n😍 남은 쓰레기는 쓰레기통에 버려주시기 바랍니다"
+  },
   "mapInfo": {
     "address1": "행복1마을",
     "address2": "\uD83D\uDC49\uD83C\uDFFB 복지A동 (택배 센터 건물) 근처",
@@ -110,7 +35,6 @@
   },
   "locationInfo": [
     {
-      "title": "\uD83D\uDCCD 지하철",
       "desc": "\uD83D\uDC49\uD83C\uDFFB 복지A동 (택배 센터 건물) 근처"
     }
   ],
