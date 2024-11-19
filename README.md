@@ -1,4 +1,4 @@
-# SK행복마을 자치회 붕어빵 행사 대기 현왕
+# SK행복마을 자치회 붕어빵 나눔 대기 현왕
 
 ## 프로젝트 설치 및 실행 방법
 
@@ -22,7 +22,8 @@ npm install
 
 4. `.env.sample` 파일의 이름을 `.env`으로 바꾸고, VITE_APP_NAVERMAPS_CLIENT_ID에 Naver Cloud에서 발급 받은 `client_id`로 채웁니다. `client_id`는 [NAVER CLOUD PLATFORM](https://console.ncloud.com/naver-service/application) 에서 어플리케이션 등록 후 발급받을 수 있습니다.
 5. `.env`파일에서 VITE_APP_APIKEY,VITE_APP_AUTHDOMAIN, VITE_APP_DATABASEURL, VITE_APP_PROJECTID, VITE_APP_STORAGEBUCKET, VITE_APP_MESSAGINGSENDERID, VITE_APP_APPID, VITE_APP_MEASUREMENTID에 Firebase 값들을 설정합니다.
-6. `.env`파일에서 VITE_APP_PASSWORDKEY 값을 원하는대로 설정합니다. 예시) passwordkey, myKey, ...
+6. `.env`파일에서 VITE_APP_PASSWORDKEY 값을 원하는대로 설정합니다.
+   예시: passwordkey, myKey, ...
 7. src/firebase.ts 파일에 Firebase SDK를 설정합니다. [Firebase](https://firebase.google.com/docs/web/setup?hl=ko) 문서를 참고하여 SDK를 설정할 수 있습니다.
 8. 사용자 정의가 필요한 파일들을 수정합니다. (아래의 체크리스트 참고)
 9. 애플리케이션을 실행합니다.
@@ -31,17 +32,9 @@ npm install
 npm run dev
 ```
 
-## 커스텀 체크리스트
-
-- [ ] `src/data.json` 청첩장에 들어갈 정보를 수정합니다.
-- [ ] `index.html` 파비콘, title, og tag에 쓰일 meta tag 등을 수정합니다.
-- [ ] `public/thumbnail.jpg` 썸네일 사진을 수정합니다.
-- [ ] `.env` VITE_APP_NAVERMAPS_CLIENT_ID=client_id 입력이 필요합니다.
-- [ ] `src/firebase.ts` likes, 방명록을 사용한다면 firebase sdk 설정이 필요합니다.
-
 ## Clone 후, 바로 배포하기
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fheejin-hwang%2Fmobile-wedding-invitation)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/import?s=https%3A%2F%2Fgithub.com%2Fboorooksus%2Fhappy-bungeobbang-nanum-client&hasTrialAvailable=1&showOptionalTeamCreation=false&project-name=happy-bungeobbang-nanum-client&framework=vite&totalProjects=1&remainingProjects=1&teamSlug=boo-sjs-projects)
 
 ## 참고 자료
 
