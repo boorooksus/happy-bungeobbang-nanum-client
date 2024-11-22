@@ -1,7 +1,7 @@
 # SK행복마을 자치회 붕어빵 나눔 대기 현왕
 
 웹페이지 링크: 
-[https://happy-bungeobbang-nanum-client.vercel.app/](https://happy-bungeobbang-nanum-client.vercel.app/ "붕어빵 대기현황 웹페이지")
+<a href="https://happy-bungeobbang-nanum-client.vercel.app/" target="_blank">https://happy-bungeobbang-nanum-client.vercel.app/</a>
 
 ![hbn_main.png](hbn_main.png) |![hbn_manager.png](hbn_manager.png)
 --- | --- | 
