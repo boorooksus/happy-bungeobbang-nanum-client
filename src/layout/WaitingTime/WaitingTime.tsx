@@ -19,7 +19,7 @@ const WaitingTime = () => {
   const [color, setColor] = useState<string>('');
 
   useEffect(() => {
-
+    // DB 데이터 불러오기
     const dbRef = ref(realtimeDb, 'data');
     onValue(dbRef, (snapshot) => {
       const data: IDBData = snapshot.val();
@@ -34,7 +34,7 @@ const WaitingTime = () => {
   return (
     <GuestBookWrapper>
       <Heading2>붕어빵 대기줄 현황을 알려드릴게요</Heading2>
-      <StatusText style={{ color: colorMapper[color] }}>{status}</StatusText>
+      <StatusText color={colorMapper[color]} >{status}</StatusText>
       <PointTitle>예상 대기 시간</PointTitle>
       <WaitingTimeText>
         행복1마을: <Time>{waitTime1} </Time> 분
@@ -56,10 +56,11 @@ const GuestBookWrapper = styled.div`
   margin-bottom: 50px;
 `;
 
-const StatusText = styled.p`
+const StatusText = styled.p<{ color: string }>`
   font-size: 1.3rem;
   margin: 8px;
   white-space: pre-line;
+  color: ${(props) => props.color}
 `;
 
 const WaitingTimeText = styled.p`

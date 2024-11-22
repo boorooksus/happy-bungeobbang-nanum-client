@@ -3,32 +3,33 @@ import data from 'data.json';
 import kakao from '@/assets/icons/kakao.png';
 import { Caption, Paragraph, PointTitle } from '@/components/Text.tsx';
 
-const Invitation = () => {
+const Overview = () => {
   const { greeting, kakaoChannelInfo } = data;
+
   return (
-    <InvitationWrapper>
+    <OverviewWrapper>
       <Caption textAlign={'center'}>{greeting.eventDetail}</Caption>
       <PointTitle>일정</PointTitle>
       <Paragraph>{greeting.date}</Paragraph>
       <PointTitle>참여 방법</PointTitle>
       <Paragraph>{greeting.kakaoDesc}</Paragraph>
       <KakaoButton onClick={() => window.open(kakaoChannelInfo.url)}>
-        <KakaoImg src={kakao} alt="kakao" />
+        <KakaoIcon src={kakao} alt="kakao" />
         카카오 채널 친구 추가하기
       </KakaoButton>
-    </InvitationWrapper>
+    </OverviewWrapper>
   );
 };
 
-export default Invitation;
+export default Overview;
 
-const InvitationWrapper = styled.div`
+const OverviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const KakaoImg = styled.img`
+const KakaoIcon = styled.img`
   width: 20px;
 `;
 

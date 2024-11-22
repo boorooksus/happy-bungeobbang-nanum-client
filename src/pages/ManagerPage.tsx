@@ -11,18 +11,21 @@ import { IDBData } from '@/types/data';
 const colorMapper: IColorMapper = data.colorMapper;
 
 const ManagerPage = () => {
+  // DB에 저장된 기존 값
   const [orgStatus, setOrgStatus] = useState<string>('오픈 전');
   const [orgColor, setOrgColor] = useState<string>('그레이');
   const [orgWaitTime1, setOrgWaitTime1] = useState<string>("");
   const [orgWaitTime2, setOrgWaitTime2] = useState<string>("");
+  // 변경할 값
   const [status, setStatus] = useState<string>('');
   const [waitTime1, setWaitTime1] = useState<string>("");
   const [waitTime2, setWaitTime2] = useState<string>("");
   const [color, setColor] = useState<string>('');
+  // 관리자 인증 번호
   const [password, setPassword] = useState<string>('');
 
   useEffect(() => {
-
+    // 기존 값 DB에서 불러옴
     const dbRef = ref(realtimeDb, 'data');
     onValue(dbRef, (snapshot) => {
       const data: IDBData = snapshot.val();
@@ -34,13 +37,13 @@ const ManagerPage = () => {
       setWaitTime1(data.waitTime1);
       setOrgWaitTime2(data.waitTime2);
       setWaitTime2(data.waitTime2);
-
     });
   }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // 관리자 인증 번호가 맞는지 확인
     const key = import.meta.env.VITE_APP_PASSWORDKEY;
     const hash = HmacSHA256(password, key).toString();
 
@@ -52,6 +55,7 @@ const ManagerPage = () => {
         onValue(dbCheckRef, (snapshot) => {
           const dataCheck: IDBData = snapshot.val();
 
+          // DB 저장 데이터
           const data: IDBData = {
             status: dataCheck.status,
             color: dataCheck.color,
@@ -60,6 +64,7 @@ const ManagerPage = () => {
             waitTime2: dataCheck.waitTime2
           };
 
+          // 변경 이력 확인용 데이터
           const hisData: IDBData = {
             status: "",
             color: "",
@@ -68,6 +73,7 @@ const ManagerPage = () => {
             waitTime2: ""
           }
       
+          // 변경된 데이터만 반영해서 DB에 저장
           if (orgStatus !== status){
             data.status = status;
             hisData.status = status;
@@ -96,7 +102,7 @@ const ManagerPage = () => {
     
         });
       } else {
-        alert('잘못된 코드입니다.');
+        alert('잘못된 관리자 인증 번호입니다.');
       }
     });
   };
@@ -271,4 +277,5 @@ const SubmitButton = styled.button`
   font-weight: inherit;
   color: #000000;
 `;
+
 export default ManagerPage;

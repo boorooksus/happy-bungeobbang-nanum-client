@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { useEffect, useRef, useState } from 'react';
 import { NavermapsProvider } from 'react-naver-maps';
 import { Heading1 } from '@/components/Text.tsx';
 import Wrapper from '@/components/Wrapper.tsx';
@@ -7,34 +6,13 @@ import Caution from '@/layout/Caution/Caution';
 import Container from '@/layout/Container.tsx';
 import FloatingBar from '@/layout/FloatingBar/FloatingBar.tsx';
 import WaitingTime from '@/layout/WaitingTime/WaitingTime';
-import Invitation from '@/layout/Invitation/Invitation.tsx';
+import Overview from '@/layout/Invitation/Invitation.tsx';
 import Location from '@/layout/Location/Location.tsx';
 import Main from '@/layout/Main/Main.tsx';
 
 function MainPage() {
   const ncpClientId = import.meta.env.VITE_APP_NAVERMAPS_CLIENT_ID;
-  const [isVisible, setIsVisible] = useState(true);
-  const galleryRef = useRef(null);
 
-  useEffect(() => {
-    window.addEventListener('scroll', checkScrollPosition);
-    return () => {
-      window.removeEventListener('scroll', checkScrollPosition);
-    };
-  }, []);
-
-  const checkScrollPosition = () => {
-    if (galleryRef.current) {
-      const { offsetTop } = galleryRef.current;
-      const scrollPosition = window.scrollY;
-
-      if (scrollPosition >= offsetTop) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    }
-  };
 
   return (
     <NavermapsProvider ncpClientId={ncpClientId}>
@@ -48,9 +26,8 @@ function MainPage() {
         </Wrapper>
         <Wrapper>
           <Heading1>행사 소개</Heading1>
-          <Invitation />
+          <Overview />
         </Wrapper>
-
         <Wrapper>
           <Heading1>위치</Heading1>
           <Location />
@@ -59,7 +36,7 @@ function MainPage() {
           <Heading1>행사 유의 사항</Heading1>
           <Caution />
         </Wrapper>
-        <FloatingBar isVisible={isVisible} />
+        <FloatingBar/>
       </Container>
     </NavermapsProvider>
   );

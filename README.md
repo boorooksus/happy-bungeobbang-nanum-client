@@ -49,8 +49,6 @@ npm run dev
 ## 참고 자료
 
 - mobile-wedding-invitation 래파지토리: [heejin-hwang](https://github.com/heejin-hwang/mobile-wedding-invitation)
-- react-photoswipe-gallery 라이브러리: [react-photoswipe-gallery](https://www.npmjs.com/package/react-photoswipe-gallery)
 - react-naver-maps 공식문서: [react-naver-maps](https://zeakd.github.io/react-naver-maps/)
-- 네이버 클라우드 플랫폼: [NAVER CLOUD PLATFORM](https://console.ncloud.com/naver-service/application)
 
-이 프로젝트는 MIT 라이센스에 따라 배포됩니다. 자세한 내용은 LICENSE 파일을 참조하세요.
+이 프로젝트는 MIT 라이센스에 따라 배포됩니다. 자세한 내용은 LICENSE 파일을 참조해주세요.

@@ -1,17 +1,8 @@
 import styled from '@emotion/styled';
-import data from 'data.json';
 import Button from '@/components/Button.tsx';
+import { IMapInfo } from '@/types/data';
 
-interface IMapInfo {
-  address1: string;
-  address2: string;
-  naverMap: string;
-  kakaoMap: string;
-  lat: number;
-  lon: number;
-}
-
-const MapButtons = ({ mapInfo }: IMapInfo) => {
+const MapButtons = ({ mapInfo }: { mapInfo: IMapInfo }) => {
   const { naverMap, kakaoMap } = mapInfo;
 
   return (

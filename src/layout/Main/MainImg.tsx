@@ -6,9 +6,10 @@ import minionsImg from '@/assets/images/minions.webp';
 import pepeImg from '@/assets/images/pepe3.jpg';
 import poohImg from '@/assets/images/pooh.webp';
 import simpsonImg from '@/assets/images/simpson.webp';
+import shaquilleImg from '@/assets/images/shaquille.webp'
 
 
-const Photo = () => {
+const MainImg = () => {
   const [images, setImages] = useState<string[]>([
     bungeoImg2,
     pepeImg,
@@ -16,10 +17,12 @@ const Photo = () => {
     poohImg,
     simpsonImg,
     minionsImg,
+    shaquilleImg
   ]);
   const [imgIdx, setImgIdx] = useState<number>(0);
 
   useEffect(() => {
+    // 메인 이미지 랜덤으로 선택
     setImgIdx(Math.floor(Math.random() * images.length));
   }, []);
 
@@ -30,7 +33,7 @@ const Photo = () => {
   );
 };
 
-export default Photo;
+export default MainImg;
 
 const Img = styled.img`
   width: 90%;

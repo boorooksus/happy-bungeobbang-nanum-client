@@ -1,14 +1,13 @@
 import styled from '@emotion/styled';
 import data from 'data.json';
-import Photo from './Photo';
+import MainImg from './MainImg';
 
 const Main = () => {
   const { greeting } = data;
   return (
     <div>
-      {/* <MainImg src={mainImg} /> */}
       <MainTitle>{greeting.title}</MainTitle>
-      <Photo />
+      <MainImg />
     </div>
   );
 };
