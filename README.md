@@ -4,7 +4,7 @@
 --- | --- | 
 
 <p align="center">
-<img src="hbn_main_scroll.gif" width="50%"/>
+<img src="hbn_main_scroll2.gif" width="50%"/>
 </p>
 
 ## 프로젝트 설치 및 실행 방법
