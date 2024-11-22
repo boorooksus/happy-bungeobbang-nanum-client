@@ -6,7 +6,7 @@ import Caution from '@/layout/Caution/Caution';
 import Container from '@/layout/Container.tsx';
 import FloatingBar from '@/layout/FloatingBar/FloatingBar.tsx';
 import WaitingTime from '@/layout/WaitingTime/WaitingTime';
-import Overview from '@/layout/Invitation/Invitation.tsx';
+import Overview from '@/layout/Overview/Overview';
 import Location from '@/layout/Location/Location.tsx';
 import Main from '@/layout/Main/Main.tsx';
 
