@@ -3,6 +3,7 @@
 import MainPage from 'pages/MainPage';
 import ManagerPage from 'pages/ManagerPage';
 import { Route, Routes } from 'react-router-dom';
+import { Analytics } from "@vercel/analytics/react"
 
 // const App: React.FC = () => {
 //   const elem = useRoutes(routes);
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/manager" element={<ManagerPage />}></Route>
         <Route path="/*" element={<MainPage />} />
       </Routes>
+      <Analytics />
     </div>
   );
 };
