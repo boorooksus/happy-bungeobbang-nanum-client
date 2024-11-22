@@ -1,5 +1,12 @@
 # SK행복마을 자치회 붕어빵 나눔 대기 현왕
 
+![hbn_main.png](hbn_main.png) |![hbn_manager.png](hbn_manager.png)
+--- | --- | 
+
+<p align="center">
+<img src="hbn_main_scroll.gif" width="50%"/>
+</p>
+
 ## 프로젝트 설치 및 실행 방법
 
 1. 저장소를 클론합니다.
