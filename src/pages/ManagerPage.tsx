@@ -13,11 +13,11 @@ const colorMapper: IColorMapper = data.colorMapper;
 const ManagerPage = () => {
   const [orgStatus, setOrgStatus] = useState<string>('오픈 전');
   const [orgColor, setOrgColor] = useState<string>('그레이');
-  const [orgWaitTime1, setOrgWaitTime1] = useState<number>(0);
-  const [orgWaitTime2, setOrgWaitTime2] = useState<number>(0);
+  const [orgWaitTime1, setOrgWaitTime1] = useState<string>("");
+  const [orgWaitTime2, setOrgWaitTime2] = useState<string>("");
   const [status, setStatus] = useState<string>('');
-  const [waitTime1, setWaitTime1] = useState<number>(0);
-  const [waitTime2, setWaitTime2] = useState<number>(0);
+  const [waitTime1, setWaitTime1] = useState<string>("");
+  const [waitTime2, setWaitTime2] = useState<string>("");
   const [color, setColor] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
@@ -44,25 +44,57 @@ const ManagerPage = () => {
     const key = import.meta.env.VITE_APP_PASSWORDKEY;
     const hash = HmacSHA256(password, key).toString();
 
-    const data: IDBData = {
-      status,
-      color,
-      time: new Date().toLocaleString(),
-      waitTime1,
-      waitTime2
-    };
-
-    const dbRefCode = ref(realtimeDb, 'hash');
-    onValue(dbRefCode, (snapshot) => {
+    const dbHashRef = ref(realtimeDb, 'hash');
+    onValue(dbHashRef, (snapshot) => {
       if (snapshot.val() === hash) {
-        const dbRef = ref(realtimeDb);
-        const uploadData = {
-          data
-        };
 
-        void update(dbRef, uploadData);
-        void push(dbRef, uploadData);
-        window.location.reload();
+        const dbCheckRef = ref(realtimeDb, 'data');
+        onValue(dbCheckRef, (snapshot) => {
+          const dataCheck: IDBData = snapshot.val();
+
+          const data: IDBData = {
+            status: dataCheck.status,
+            color: dataCheck.color,
+            updateTime: new Date().toLocaleString(),
+            waitTime1: dataCheck.waitTime1,
+            waitTime2: dataCheck.waitTime2
+          };
+
+          const hisData: IDBData = {
+            status: "",
+            color: "",
+            updateTime: new Date().toLocaleString(),
+            waitTime1: "",
+            waitTime2: ""
+          }
+      
+          if (orgStatus !== status){
+            data.status = status;
+            hisData.status = status;
+          }
+          if (orgColor !== color) {
+            data.color = color;
+            hisData.color = color;
+          }
+          if (orgWaitTime1 !== waitTime1){
+            data.waitTime1 = waitTime1;
+            hisData.waitTime1 = waitTime1
+          }
+          if (orgWaitTime2 !== waitTime2){
+            data.waitTime2 = waitTime2;
+            hisData.waitTime2 = waitTime2;
+          }
+
+          const dbRef = ref(realtimeDb);
+          const uploadData = {
+            data
+          };
+
+          void update(dbRef, uploadData);
+          void push(dbRef, hisData);
+          window.location.reload();
+    
+        });
       } else {
         alert('잘못된 코드입니다.');
       }
@@ -113,7 +145,7 @@ const ManagerPage = () => {
                   placeholder="행1 예상 대기 시간"
                   type="text"
                   value={waitTime1}
-                  onChange={(e) => setWaitTime1(Number(e.target.value))}
+                  onChange={(e) => setWaitTime1(e.target.value)}
                 />
               </td>
             </tr>
@@ -125,7 +157,7 @@ const ManagerPage = () => {
                   placeholder="행2 예상 대기 시간"
                   type="text"
                   value={waitTime2}
-                  onChange={(e) => setWaitTime2(Number(e.target.value))}
+                  onChange={(e) => setWaitTime2(e.target.value)}
                 />
               </td>
             </tr>

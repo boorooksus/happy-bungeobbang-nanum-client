@@ -15,13 +15,6 @@ const Main = () => {
 
 export default Main;
 
-const MainImg = styled.img`
-  border-radius: 200px 200px 0 0;
-  width: 90%;
-  max-width: 450px;
-  padding-top: 20px;
-`;
-
 const MainTitle = styled.p`
   font-family: HSSanTokki20-Regular, serif;
   font-size: 2rem;

@@ -1,22 +1,20 @@
 import styled from '@emotion/styled';
 import data from 'data.json';
-import AccountWrap from './AccountWrap.tsx';
-import Accordion from '@/components/Accordion.tsx';
-import { Caption, Paragraph, PointTitle } from '@/components/Text.tsx';
+import { Paragraph } from '@/components/Text.tsx';
 
 const Caution = () => {
   const { caution } = data;
 
   return (
-    <HostInfoWrapper>
+    <CautionWrapper>
       <Paragraph>{caution.desc}</Paragraph>
-    </HostInfoWrapper>
+    </CautionWrapper>
   );
 };
 
 export default Caution;
 
-const HostInfoWrapper = styled.div`
+const CautionWrapper = styled.div`
   display: flex;
   width: 90%;
   flex-direction: column;

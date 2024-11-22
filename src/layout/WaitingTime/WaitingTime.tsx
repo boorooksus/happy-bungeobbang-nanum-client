@@ -13,8 +13,8 @@ const colorMapper: IColorMapper = data.colorMapper;
 
 
 const WaitingTime = () => {
-  const [waitTime1, setWaitTime1] = useState<number>(30);
-  const [waitTime2, setWaitTime2] = useState<number>(30);
+  const [waitTime1, setWaitTime1] = useState<string>("");
+  const [waitTime2, setWaitTime2] = useState<string>("");
   const [status, setStatus] = useState<string>('');
   const [color, setColor] = useState<string>('');
 
@@ -73,3 +73,4 @@ const Time = styled.span`
   color: #4f4f4f;
   margin-right: 5px;
 `;
+

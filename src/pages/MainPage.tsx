@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { NavermapsProvider } from 'react-naver-maps';
 import { Heading1 } from '@/components/Text.tsx';
 import Wrapper from '@/components/Wrapper.tsx';
-import Caution from '@/layout/Account/Account.tsx';
+import Caution from '@/layout/Caution/Caution';
 import Container from '@/layout/Container.tsx';
 import FloatingBar from '@/layout/FloatingBar/FloatingBar.tsx';
 import WaitingTime from '@/layout/WaitingTime/WaitingTime';

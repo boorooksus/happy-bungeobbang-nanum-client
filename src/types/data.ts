@@ -10,9 +10,9 @@ export interface IData {
 export interface IDBData {
   status: string;
   color: string;
-  time: string;
-  waitTime1: number;
-  waitTime2: number;
+  updateTime: string;
+  waitTime1: string;
+  waitTime2: string;
 }
 
 export interface IGreeting {
