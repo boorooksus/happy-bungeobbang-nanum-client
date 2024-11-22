@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import data from 'data.json';
-import mainImg from '@/assets/images/pepe.jpg';
+import Photo from './Photo';
 
 const Main = () => {
   const { greeting } = data;
@@ -8,6 +8,7 @@ const Main = () => {
     <div>
       {/* <MainImg src={mainImg} /> */}
       <MainTitle>{greeting.title}</MainTitle>
+      <Photo />
     </div>
   );
 };
@@ -26,12 +27,5 @@ const MainTitle = styled.p`
   font-size: 2rem;
   color: #2f2120;
   line-height: 120%;
-  white-space: pre-line;
-`;
-
-const SubTitle = styled.p`
-  font-size: 1.1rem;
-  color: #2f2120;
-  line-height: 100%;
   white-space: pre-line;
 `;

@@ -6,7 +6,7 @@ import Wrapper from '@/components/Wrapper.tsx';
 import Caution from '@/layout/Account/Account.tsx';
 import Container from '@/layout/Container.tsx';
 import FloatingBar from '@/layout/FloatingBar/FloatingBar.tsx';
-import GalleryWrap from '@/layout/Gallery/GalleryWrap.tsx';
+import GalleryWrap from '@/layout/Photo/GalleryWrap';
 import WaitingTime from '@/layout/Guestbook/WaitingTime';
 import Invitation from '@/layout/Invitation/Invitation.tsx';
 import Location from '@/layout/Location/Location.tsx';

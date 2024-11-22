@@ -3,41 +3,38 @@ import styled from '@emotion/styled';
 import { HmacSHA256 } from 'crypto-js';
 import { realtimeDb } from 'firebase';
 import { onValue, push, ref, update } from 'firebase/database';
-// import { push, ref, serverTimestamp } from 'firebase/database';
 import data from '../data.json';
+import { IColorMapper } from '@/types/data';
+import { IDBData } from '@/types/data';
 
-// TODO: 방명록 기능 사용시, realtime db에 guestbook 추가
-// const guestbookRef = ref(realtimeDb, 'guestbook');
 
-const colorMapper = data.colorMapper;
+const colorMapper: IColorMapper = data.colorMapper;
 
 const ManagerPage = () => {
   const [orgStatus, setOrgStatus] = useState<string>('오픈 전');
   const [orgColor, setOrgColor] = useState<string>('그레이');
-  const [orgWaitTime, setOrgWaitTime] = useState<number>(10);
+  const [orgWaitTime1, setOrgWaitTime1] = useState<number>(0);
+  const [orgWaitTime2, setOrgWaitTime2] = useState<number>(0);
   const [status, setStatus] = useState<string>('');
-  const [waitTime, setWaitTime] = useState<number>(0);
+  const [waitTime1, setWaitTime1] = useState<number>(0);
+  const [waitTime2, setWaitTime2] = useState<number>(0);
   const [color, setColor] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   useEffect(() => {
-    const dbRef = ref(realtimeDb, 'status');
+
+    const dbRef = ref(realtimeDb, 'data');
     onValue(dbRef, (snapshot) => {
-      const data = snapshot.val();
-      setOrgStatus(data);
-      setStatus(data);
-    });
+      const data: IDBData = snapshot.val();
+      setOrgStatus(data.status);
+      setStatus(data.status);
+      setOrgColor(data.color);
+      setColor(data.color);
+      setOrgWaitTime1(data.waitTime1);
+      setWaitTime1(data.waitTime1);
+      setOrgWaitTime2(data.waitTime2);
+      setWaitTime2(data.waitTime2);
 
-    const dbRef2 = ref(realtimeDb, 'waitTime');
-    onValue(dbRef2, (snapshot) => {
-      setOrgWaitTime(Number(snapshot.val()));
-      setWaitTime(Number(snapshot.val()));
-    });
-
-    const dbRef3 = ref(realtimeDb, 'color');
-    onValue(dbRef3, (snapshot) => {
-      setOrgColor(snapshot.val());
-      setColor(snapshot.val());
     });
   }, []);
 
@@ -47,16 +44,20 @@ const ManagerPage = () => {
     const key = import.meta.env.VITE_APP_PASSWORDKEY;
     const hash = HmacSHA256(password, key).toString();
 
+    const data: IDBData = {
+      status,
+      color,
+      time: new Date().toLocaleString(),
+      waitTime1,
+      waitTime2
+    };
+
     const dbRefCode = ref(realtimeDb, 'hash');
     onValue(dbRefCode, (snapshot) => {
       if (snapshot.val() === hash) {
         const dbRef = ref(realtimeDb);
         const uploadData = {
-          status: status,
-          waitTime: waitTime,
-          color: color,
-          time: new Date().toLocaleString(),
-          hash: hash,
+          data
         };
 
         void update(dbRef, uploadData);
@@ -105,14 +106,26 @@ const ManagerPage = () => {
               </td>
             </tr>
             <tr>
-              <td>예상 대기 시간</td>
-              <td>{orgWaitTime}</td>
+              <td>행1 예상 대기시간(분)</td>
+              <td>{orgWaitTime1}</td>
               <td>
                 <NumberInput
-                  placeholder="예상 대기 시간"
-                  type="number"
-                  value={waitTime}
-                  onChange={(e) => setWaitTime(Number(e.target.value))}
+                  placeholder="행1 예상 대기 시간"
+                  type="text"
+                  value={waitTime1}
+                  onChange={(e) => setWaitTime1(Number(e.target.value))}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>행2 예상 대기시간(분)</td>
+              <td>{orgWaitTime2}</td>
+              <td>
+                <NumberInput
+                  placeholder="행2 예상 대기 시간"
+                  type="text"
+                  value={waitTime2}
+                  onChange={(e) => setWaitTime2(Number(e.target.value))}
                 />
               </td>
             </tr>
@@ -142,13 +155,6 @@ const Container = styled.div`
   @media screen and (min-width: 500px) {
     width: 500px;
   }
-`;
-
-const Paragraph = styled.p`
-  margin-top: 10px;
-  white-space: pre-line;
-  font-weight: 700;
-  color: #000000;
 `;
 
 const Table = styled.table`

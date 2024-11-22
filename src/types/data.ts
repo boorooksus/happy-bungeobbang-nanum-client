@@ -7,6 +7,14 @@ export interface IData {
   mapInfo2: IMapInfo2;
 }
 
+export interface IDBData {
+  status: string;
+  color: string;
+  time: string;
+  waitTime1: number;
+  waitTime2: number;
+}
+
 export interface IGreeting {
   mainImg: string;
   title: string;
@@ -61,4 +69,9 @@ export interface IMapInfo2 {
 export interface ILocationInfo {
   title: string;
   desc: string;
+}
+
+
+export interface IColorMapper {
+  [key: string]: string;
 }
