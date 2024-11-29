@@ -11,6 +11,9 @@ const Overview = () => {
       <Caption textAlign={'center'}>{greeting.eventDetail}</Caption>
       <PointTitle>일정</PointTitle>
       <Paragraph>{greeting.date}</Paragraph>
+      <CancelDateParagraph>{greeting.cacel_date}</CancelDateParagraph>
+      <FixDateParagraph>{greeting.fixed_date}</FixDateParagraph>
+      <FixDateDescParagraph>{greeting.fixed_date_desc}</FixDateDescParagraph>
       <PointTitle>참여 방법</PointTitle>
       <Paragraph>{greeting.kakaoDesc}</Paragraph>
       <KakaoButton onClick={() => window.open(kakaoChannelInfo.url)}>
@@ -49,3 +52,29 @@ const KakaoButton = styled.button`
   text-decoration: none;
   gap: 2px;
 `.withComponent('a');
+
+const CancelDateParagraph = styled.p`
+  margin: 1px;
+  white-space: pre-line;
+  font-weight: 400;
+  text-align: left;
+  text-decoration: line-through;
+`;
+
+const FixDateParagraph = styled.p`
+  margin-top: 1px;
+  white-space: pre-line;
+  font-weight: 900;
+  text-align: left;
+  font-weight: bold;
+  background-color: #f8e18c;
+`;
+
+const FixDateDescParagraph = styled.p`
+  margin-top: 1px;
+  margin-bottom: 50px;
+  white-space: pre-line;
+  font-weight: 200;
+  text-align: left;
+  font-size: small;
+`;

@@ -5,14 +5,13 @@ import Wrapper from '@/components/Wrapper.tsx';
 import Caution from '@/layout/Caution/Caution';
 import Container from '@/layout/Container.tsx';
 import FloatingBar from '@/layout/FloatingBar/FloatingBar.tsx';
-import WaitingTime from '@/layout/WaitingTime/WaitingTime';
-import Overview from '@/layout/Overview/Overview';
 import Location from '@/layout/Location/Location.tsx';
 import Main from '@/layout/Main/Main.tsx';
+import Overview from '@/layout/Overview/Overview';
+import WaitingTime from '@/layout/WaitingTime/WaitingTime';
 
 function MainPage() {
   const ncpClientId = import.meta.env.VITE_APP_NAVERMAPS_CLIENT_ID;
-
 
   return (
     <NavermapsProvider ncpClientId={ncpClientId}>
@@ -36,7 +35,7 @@ function MainPage() {
           <Heading1>행사 유의 사항</Heading1>
           <Caution />
         </Wrapper>
-        <FloatingBar/>
+        <FloatingBar />
       </Container>
     </NavermapsProvider>
   );

@@ -5,19 +5,18 @@ import jasonImg from '@/assets/images/jason.webp';
 import minionsImg from '@/assets/images/minions.webp';
 import pepeImg from '@/assets/images/pepe3.jpg';
 import poohImg from '@/assets/images/pooh.webp';
+import shaquilleImg from '@/assets/images/shaquille.webp';
 import simpsonImg from '@/assets/images/simpson.webp';
-import shaquilleImg from '@/assets/images/shaquille.webp'
-
 
 const MainImg = () => {
-  const [images, setImages] = useState<string[]>([
+  const [images] = useState<string[]>([
     bungeoImg2,
     pepeImg,
     jasonImg,
     poohImg,
     simpsonImg,
     minionsImg,
-    shaquilleImg
+    shaquilleImg,
   ]);
   const [imgIdx, setImgIdx] = useState<number>(0);
 

@@ -20,7 +20,4 @@ export interface ILocationInfo {
   desc: string;
 }
 
-
-export interface IColorMapper {
-  [key: string]: string;
-}
+export type IColorMapper = Record<string, string>;
