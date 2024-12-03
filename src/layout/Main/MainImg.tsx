@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
+import bungeoManwhaImg from '@/assets/images/bungeo_manwha.png';
 import bungeoImg2 from '@/assets/images/bungeo_tear.png';
 import jasonImg from '@/assets/images/jason.webp';
 import minionsImg from '@/assets/images/minions.webp';
@@ -17,6 +18,7 @@ const MainImg = () => {
     simpsonImg,
     minionsImg,
     shaquilleImg,
+    bungeoManwhaImg,
   ]);
   const [imgIdx, setImgIdx] = useState<number>(0);
 
